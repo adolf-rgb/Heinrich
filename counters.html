@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Multiple Counters</title>
+
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<script src="assets/js/bootstrap.bundle.js"></script>
+</head>
+<body class="bg-light p-4">
+
+<div class="container text-center">
+    <button id="add" class="btn btn-success mb-3">Add a counter</button>
+    <div id="c" class="row g-3"></div>
+</div>
+
+<script>
+const c = document.getElementById("c");
+add.onclick = () => {
+  const d = document.createElement("div");
+  d.className = "col-6 col-md-3";
+  d.innerHTML = `
+    <div class="card text-center p-3">
+      <h1 class="v">0</h1>
+      <button class="btn btn-primary m-1">-</button>
+      <button class="btn btn-danger m-1">+</button>
+    </div>`;
+  let n = 0, v = d.querySelector(".v");
+  d.onclick = e => {
+    if (e.target.textContent == "+") v.textContent = ++n;
+    if (e.target.textContent == "-") v.textContent = --n;
+  };
+  c.appendChild(d);
+};
+add.click();
+</script>
+
+
+</body>
+</html>
